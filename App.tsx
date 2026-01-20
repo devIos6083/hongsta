@@ -1,26 +1,32 @@
+import { Toaster } from "sonner";
 import "./App.css";
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 function App() {
   return (
-    <div>
-      {/* 1. 타이포그래프 */}
-      <div className="text-xs text-red-500">text-xs</div>
-      <div className="text-sm text-[rgb(100,30,200)]">text-sm</div>
-      <div className="text-lg font-bold">text-lg</div>
-      <div className="text-xl font-extrabold">text-xl</div>
-      <div className="text-2xl font-black">text-2xl</div>
-      <div className="text-[13px]">text-13px</div>
+    <div className="flex min-h-svh flex-col items-center justify-center">
+      <Button>Click me</Button>
 
-      {/* 2. 백그라운드컬러 */}
-      <div className="bg-amber-500">amber-500</div>
+      <Toaster />
 
-      {/* 3. 사이즈 */}
-      <div className="h-20 w-full bg-blue-500">box</div>
-
-      {/* 4. 여백 */}
-      <div className="mx-5 my-5 h-50 w-50 bg-red-400 px-5 py-5">
-        <div className="h-full w-full bg-blue-400"></div>
-      </div>
+      <Carousel className="mx-10">
+        <CarouselContent>
+          <CarouselItem className="basis-1/3">1</CarouselItem>
+          <CarouselItem className="basis-1/3">2</CarouselItem>
+          <CarouselItem className="basis-1/3">3</CarouselItem>
+          <CarouselItem className="basis-1/3">4</CarouselItem>
+          <CarouselItem className="basis-1/3">5</CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
   );
 }
