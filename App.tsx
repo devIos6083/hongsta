@@ -1,33 +1,25 @@
-import { Toaster } from "sonner";
+import { Outlet, Route, Routes } from "react-router";
 import "./App.css";
-import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import CounterPage from "./pages/counter-page";
+import TodoListPage from "@/pages/todo-list-page";
+
+function AuthLayout() {
+  return (
+    <div>
+      <header>Auth!</header>
+      <Outlet />
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click me</Button>
+    <Routes>
+      <Route path="/counter" element={<CounterPage />} />
+      <Route path="/todolist" element={<TodoListPage />} />
 
-      <Toaster />
-
-      <Carousel className="mx-10">
-        <CarouselContent>
-          <CarouselItem className="basis-1/3">1</CarouselItem>
-          <CarouselItem className="basis-1/3">2</CarouselItem>
-          <CarouselItem className="basis-1/3">3</CarouselItem>
-          <CarouselItem className="basis-1/3">4</CarouselItem>
-          <CarouselItem className="basis-1/3">5</CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    </div>
+      <Route element={<AuthLayout />}></Route>
+    </Routes>
   );
 }
 
